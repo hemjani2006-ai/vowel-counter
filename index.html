@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vowel & Consonant Counter</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 100px;
+        }
+        input {
+            padding: 10px;
+            width: 250px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Vowel & Consonant Counter</h1>
+
+    <input type="text" id="textInput" placeholder="Enter a string">
+    <br><br>
+
+    <button onclick="countLetters()">Count</button>
+
+    <h3 id="vowels"></h3>
+    <h3 id="consonants"></h3>
+
+    <script>
+        function countLetters() {
+            let input = document.getElementById("textInput").value.toLowerCase();
+
+            let vowelCount = 0;
+            let consonantCount = 0;
+            let vowels = "aeiou";
+
+            for (let ch of input) {
+                if (/[a-z]/.test(ch)) {
+                    if (vowels.includes(ch))
+                        vowelCount++;
+                    else
+                        consonantCount++;
+                }
+            }
+
+            document.getElementById("vowels").innerText =
+                "Number of vowels: " + vowelCount;
+
+            document.getElementById("consonants").innerText =
+                "Number of consonants: " + consonantCount;
+        }
+    </script>
+</body>
+</html>
